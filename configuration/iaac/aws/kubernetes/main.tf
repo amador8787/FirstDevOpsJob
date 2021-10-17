@@ -9,7 +9,7 @@ terraform {
   backend "s3" {
     bucket = "mybucket" # Will be overridden from build
     key    = "path/to/my/key" # Will be overridden from build
-    region = "us-east-1"
+    region = "us-east-2"
   }
 }
 
@@ -31,9 +31,9 @@ provider "kubernetes" {
 
 module "aforo255-cluster4" {
   source          = "terraform-aws-modules/eks/aws"
-  cluster_name    = "aforo255-cluster4"
+  cluster_name    = "aforo255-cluster5acv"
   cluster_version = "1.17"
-  subnets         = ["subnet-adfa07f2", "subnet-a3c23d82"]  #CHANGE # Donot choose subnet from us-east-1e
+  subnets         = ["subnet-dbc18d97", "subnet-1dc92d60"]  #CHANGE # Donot choose subnet from us-east-1e
   #subnets = data.aws_subnet_ids.subnets.ids
   vpc_id          = aws_default_vpc.default.id
   #vpc_id         = "vpc-1234556abcdef" 
