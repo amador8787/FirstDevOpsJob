@@ -9,7 +9,7 @@ terraform {
   backend "s3" {
     bucket = "mybucket" # Will be overridden from build
     key    = "path/to/my/key" # Will be overridden from build
-    region = "us-east-2"
+    region = "us-east-1"
   }
 }
 
@@ -29,7 +29,7 @@ provider "kubernetes" {
  // version                = "~> 1.9"
 }
 
-module "aforo255-cluster4" {
+module "aforo255-cluster5acv" {
   source          = "terraform-aws-modules/eks/aws"
   cluster_name    = "aforo255-cluster5acv"
   cluster_version = "1.17"
@@ -48,11 +48,11 @@ worker_groups = [
 }
 
 data "aws_eks_cluster" "cluster" {
-  name = module.aforo255-cluster4.cluster_id
+  name = module.aforo255-cluster5acv.cluster_id
 }
 
 data "aws_eks_cluster_auth" "cluster" {
-  name = module.aforo255-cluster4.cluster_id
+  name = module.aforo255-cluster5acv.cluster_id
 }
 
 
